@@ -1,4 +1,4 @@
-package ir.transport_x.learningandroid
+package ir.noori.learningandroid
 
 import org.junit.Test
 

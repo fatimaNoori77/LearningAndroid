@@ -1,4 +1,4 @@
-package ir.transport_x.learningandroid
+package ir.noori.learningandroid
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ir.transport_x.learningandroid", appContext.packageName)
+        assertEquals("ir.noori.learningandroid", appContext.packageName)
     }
 }
