@@ -1,4 +1,4 @@
-package ir.noori.learningandroid;
+package ir.noori.learningandroid.utils;
 
 import android.util.Log;
 

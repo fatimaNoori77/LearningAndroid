@@ -1,8 +1,10 @@
-package ir.noori.learningandroid
+package ir.noori.learningandroid.user.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ir.noori.learningandroid.MyApplication
+import ir.noori.learningandroid.user.data.entity.UsersModel
 import ir.noori.learningandroid.databinding.ItemUserBinding
 
 class UsersAdapter(val list : ArrayList<UsersModel>) :

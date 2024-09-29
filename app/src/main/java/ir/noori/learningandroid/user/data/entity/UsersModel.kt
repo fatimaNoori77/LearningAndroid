@@ -1,4 +1,4 @@
-package ir.noori.learningandroid
+package ir.noori.learningandroid.user.data.entity
 
 data class UsersModel(
     val id: Int,

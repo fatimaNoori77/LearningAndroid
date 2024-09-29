@@ -5,17 +5,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import ir.noori.learningandroid.databinding.ActivityMainBinding
-import org.json.JSONArray
-import org.json.JSONObject
+import ir.noori.learningandroid.user.data.entity.UsersModel
+import ir.noori.learningandroid.user.ui.UserViewModel
+import ir.noori.learningandroid.user.ui.UsersAdapter
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        initViewModel()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -24,45 +28,20 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        fetchUsers()
+        viewModel.fetchHistoryList()
+
+        viewModel.users.observe(this){
+            fillList(it)
+        }
 
     }
 
-    private fun fetchUsers(){
-        RequestHelper.builder("https://jsonplaceholder.typicode.com/users")
-            .listener(object : RequestHelper.Callback() {
-                override fun onResponse(reCall: Runnable?, vararg args: Any?) {
-                    runOnUiThread {
-                        try {
-                            val users = ArrayList<UsersModel>()
-                            val response = JSONArray(args[0].toString())
-                            for(i in 0 until response.length()){
-                                val userObj = JSONObject(response.getJSONObject(i).toString())
-                                val user =  UsersModel(
-                                    id = userObj.getInt("id"),
-                                    name =  userObj.getString("name"),
-                                    email = userObj.getString("email")
-                                )
-                                users.add(user)
-                            }
-
-                            fillList(users)
-
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                    }
-                }
-
-                override fun onFailure(reCall: Runnable?, e: java.lang.Exception?) {
-
-                }
-            }
-            )
-            .get()
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(this)[UserViewModel::class.java]
     }
 
     private fun fillList(users: ArrayList<UsersModel>){
+        // I should handle empty list here later
         val adapter = UsersAdapter(users)
         binding.users.adapter = adapter
     }
