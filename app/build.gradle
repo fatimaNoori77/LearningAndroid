@@ -49,9 +49,6 @@ dependencies {
 
     implementation libs.androidx.recyclerview
 
-    implementation(libs.socket.io.client) {
-        exclude group: 'org.json', module: 'json'
-    }
     // Retrofit
     implementation libs.retrofit
     implementation libs.converter.gson

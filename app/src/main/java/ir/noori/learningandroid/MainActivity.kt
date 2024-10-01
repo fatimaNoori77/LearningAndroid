@@ -28,13 +28,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // It's good to display a loader until the response is received.
         viewModel.fetchUsers()
 
         viewModel.users.observe(this){
             fillList(it as ArrayList<UsersModel>)
         }
         viewModel.errorMessage.observe(this){
-
+            // I should handle errors here by showing a dialog or something similar...
         }
 
     }
