@@ -28,10 +28,13 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        viewModel.fetchHistoryList()
+        viewModel.fetchUsers()
 
         viewModel.users.observe(this){
-            fillList(it)
+            fillList(it as ArrayList<UsersModel>)
+        }
+        viewModel.errorMessage.observe(this){
+
         }
 
     }
