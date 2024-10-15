@@ -6,15 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
+import dagger.hilt.android.AndroidEntryPoint
 import ir.noori.learningandroid.databinding.ActivityMainBinding
 import ir.noori.learningandroid.user.data.entity.UsersModel
 import ir.noori.learningandroid.user.ui.UserViewModel
 import ir.noori.learningandroid.user.ui.UsersAdapter
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: UserViewModel
+    lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

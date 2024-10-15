@@ -2,13 +2,16 @@ package ir.noori.learningandroid.user.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.noori.learningandroid.user.Repository
 import ir.noori.learningandroid.user.data.entity.UsersModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class UserViewModel(private val repository: Repository = Repository()) : ViewModel() {
+@HiltViewModel
+class UserViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
     val users = MutableLiveData<List<UsersModel>>()
     val errorMessage = MutableLiveData<String>()
