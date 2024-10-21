@@ -1,8 +1,8 @@
 package ir.noori.learningandroid.user
 
-import ir.noori.learningandroid.RetrofitInstance
+import ir.noori.learningandroid.ApiService
 import javax.inject.Inject
 
-class Repository @Inject constructor() {
-    fun fetchUsers()= RetrofitInstance.retrofit.fetchUsers()
+class Repository @Inject constructor(private val apiService: ApiService) {
+    fun fetchUsers()= apiService.fetchUsers()
 }
