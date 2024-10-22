@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ir.noori.learningandroid.MyApplication
 import ir.noori.learningandroid.databinding.ItemUserBinding
 import ir.noori.learningandroid.user.data.entity.UsersModel
-import javax.inject.Inject
 
-class UsersAdapter @Inject constructor(val list : ArrayList<UsersModel>) :
+class UsersAdapter(val list : ArrayList<UsersModel>) :
     RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemUserBinding) :
