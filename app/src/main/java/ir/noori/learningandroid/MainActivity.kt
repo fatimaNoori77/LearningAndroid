@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
 import ir.noori.learningandroid.databinding.ActivityMainBinding
-import ir.noori.learningandroid.user.data.entity.UsersModel
+import ir.noori.learningandroid.user.ui.UserModel
 import ir.noori.learningandroid.user.ui.UserViewModel
 import ir.noori.learningandroid.user.ui.UsersAdapter
 
@@ -31,14 +31,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         // It's good to display a loader until the response is received.
-        viewModel.fetchUsers()
+        viewModel.fetchUsers().observe(this){
+            fillList(it)
+        }
 
-        viewModel.users.observe(this){
-            fillList(it as ArrayList<UsersModel>)
-        }
-        viewModel.errorMessage.observe(this){
-            // I should handle errors here by showing a dialog or something similar...
-        }
+//        viewModel.errorMessage.observe(this){
+//            // I should handle errors here by showing a dialog or something similar...
+//        }
 
     }
 
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[UserViewModel::class.java]
     }
 
-    private fun fillList(users: ArrayList<UsersModel>){
+    private fun fillList(users: List<UserModel>){
         // I should handle empty list here later
         val adapter = UsersAdapter(users)
         binding.users.adapter = adapter

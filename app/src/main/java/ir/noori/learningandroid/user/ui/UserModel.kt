@@ -1,6 +1,6 @@
-package ir.noori.learningandroid.user.data.entity
+package ir.noori.learningandroid.user.ui
 
-data class UsersModel(
+data class UserModel(
     var id: Int,
     var name: String,
     var username: String = "",
