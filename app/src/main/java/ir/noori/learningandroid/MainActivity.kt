@@ -15,8 +15,8 @@ import ir.noori.learningandroid.user.ui.UsersAdapter
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
-    lateinit var viewModel: UserViewModel
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +30,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        viewModel.fetchUsers()
+
         // It's good to display a loader until the response is received.
-        viewModel.fetchUsers().observe(this){
+        viewModel.getUsers.observe(this){
             fillList(it)
         }
 

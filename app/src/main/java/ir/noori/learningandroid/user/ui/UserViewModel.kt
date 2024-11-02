@@ -13,8 +13,9 @@ class UserViewModel @Inject constructor(private val repository: Repository) : Vi
 
     private val _getUsers = MutableLiveData<List<UserModel>>()
     val getUsers: LiveData<List<UserModel>> get() = _getUsers
-    fun fetchUsers(): LiveData<List<UserModel>>{
-        _getUsers.value = repository.getUsers().value!!.map { it.mapToUserModel() }
-        return getUsers
+    fun fetchUsers(){
+        repository.getUsers {
+                _getUsers.value = it.map { it.mapToUserModel() } ?: emptyList()
+        }
     }
 }

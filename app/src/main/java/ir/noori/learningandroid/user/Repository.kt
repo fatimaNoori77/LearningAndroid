@@ -11,16 +11,14 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(private val apiService: ApiService) {
 
-
-    fun getUsers(): MutableLiveData<List<UserDto>> {
-        val userLiveData = MutableLiveData<List<UserDto>>()
+    fun getUsers(callBack:(List<UserDto>)->Unit){
         val errorMessage = MutableLiveData<String>()
         apiService.fetchUsers().enqueue(object : Callback<List<UserDto>> {
             override fun onResponse(p0: Call<List<UserDto>>, p1: Response<List<UserDto>>) {
                 if(p1.body() == null){
                     Log.i("TAG", "onResponse: isNulllllllll")
                 }else{
-                    userLiveData.value = p1.body()
+                   callBack(p1.body()!!)
                 }
             }
 
@@ -28,7 +26,5 @@ class Repository @Inject constructor(private val apiService: ApiService) {
                 errorMessage.postValue(p1.message)
             }
         })
-        Log.i("TAG", "getUsers: ${userLiveData.value}")
-        return userLiveData
     }
 }
