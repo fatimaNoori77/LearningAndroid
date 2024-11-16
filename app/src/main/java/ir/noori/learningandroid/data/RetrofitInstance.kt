@@ -1,4 +1,4 @@
-package ir.noori.learningandroid
+package ir.noori.learningandroid.data
 
 import dagger.Module
 import dagger.Provides
@@ -31,7 +31,7 @@ object RetrofitInstance {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): ApiService= retrofit.create(ApiService::class.java)
+    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 
     @Provides
     fun provideOkHttpClient() = OkHttpClient.Builder().apply {

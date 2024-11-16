@@ -1,10 +1,10 @@
-package ir.noori.learningandroid.user.ui
+package ir.noori.learningandroid.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ir.noori.learningandroid.MyApplication
 import ir.noori.learningandroid.databinding.ItemUserBinding
+import ir.noori.learningandroid.domain.UserModel
 
 class UsersAdapter(val list : List<UserModel>) :
     RecyclerView.Adapter<UsersAdapter.ViewHolder>() {

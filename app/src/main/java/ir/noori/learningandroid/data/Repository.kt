@@ -1,7 +1,5 @@
-package ir.noori.learningandroid.user
+package ir.noori.learningandroid.data
 
-import ir.noori.learningandroid.ApiService
-import ir.noori.learningandroid.user.data.entity.UserDto
 import javax.inject.Inject
 
 class Repository @Inject constructor(private val apiService: ApiService) {

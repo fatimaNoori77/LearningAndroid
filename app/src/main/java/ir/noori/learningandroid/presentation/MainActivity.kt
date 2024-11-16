@@ -1,4 +1,4 @@
-package ir.noori.learningandroid
+package ir.noori.learningandroid.presentation
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,10 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
+import ir.noori.learningandroid.R
 import ir.noori.learningandroid.databinding.ActivityMainBinding
-import ir.noori.learningandroid.user.ui.UserModel
-import ir.noori.learningandroid.user.ui.UserViewModel
-import ir.noori.learningandroid.user.ui.UsersAdapter
+import ir.noori.learningandroid.domain.UserModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

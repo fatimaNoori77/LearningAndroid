@@ -1,4 +1,4 @@
-package ir.noori.learningandroid
+package ir.noori.learningandroid.presentation
 
 import android.app.Application
 import android.content.Context

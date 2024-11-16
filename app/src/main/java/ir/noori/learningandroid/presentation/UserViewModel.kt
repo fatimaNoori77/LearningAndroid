@@ -1,4 +1,4 @@
-package ir.noori.learningandroid.user.ui
+package ir.noori.learningandroid.presentation
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,8 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ir.noori.learningandroid.user.Repository
-import ir.noori.learningandroid.user.data.entity.mapToUserModel
+import ir.noori.learningandroid.data.Repository
+import ir.noori.learningandroid.data.mapToUserModel
+import ir.noori.learningandroid.domain.UserModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
