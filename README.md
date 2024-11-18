@@ -19,4 +19,4 @@ The app fetches and displays a list of users from a free public API.
 This app uses the (https://jsonplaceholder.typicode.com/) to fetch user data.
 
 ## Screenshots
-![User List Screenshot](res/images/img.png)
+![User List Screenshot](app/src/main/res/images/img.png)
