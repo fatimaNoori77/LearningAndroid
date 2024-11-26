@@ -5,6 +5,9 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="fetchUsers_returns_user_list()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
