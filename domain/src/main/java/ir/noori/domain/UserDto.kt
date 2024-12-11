@@ -1,6 +1,4 @@
-package ir.noori.learningandroid.user.data.entity
-
-import ir.noori.learningandroid.user.ui.UserModel
+package ir.noori.domain
 
 data class UserDto(
     var id: Int,

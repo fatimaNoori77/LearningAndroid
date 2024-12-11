@@ -7,10 +7,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
+import ir.noori.domain.UserModel
 import ir.noori.learningandroid.databinding.ActivityMainBinding
-import ir.noori.learningandroid.user.ui.UserModel
-import ir.noori.learningandroid.user.ui.UserViewModel
-import ir.noori.learningandroid.user.ui.UsersAdapter
+import ir.noori.presentation.UserViewModel
+import ir.noori.presentation.UsersAdapter
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

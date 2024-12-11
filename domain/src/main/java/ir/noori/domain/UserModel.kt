@@ -1,4 +1,4 @@
-package ir.noori.learningandroid.user.ui
+package ir.noori.domain
 
 data class UserModel(
     var id: Int,

@@ -1,22 +1,19 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
 
 android {
-    namespace 'ir.noori.learningandroid'
+    namespace 'ir.noori.presentation'
     compileSdk Integer.parseInt(libs.versions.compileSdk.get())
 
     defaultConfig {
-        applicationId "ir.noori.learningandroid"
         minSdk Integer.parseInt(libs.versions.minSdk.get())
-        targetSdk Integer.parseInt(libs.versions.targetSdk.get())
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -26,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -35,34 +32,23 @@ android {
     buildFeatures {
         viewBinding true
     }
-
 }
 
 dependencies {
 
-    implementation(project(":data"))
     implementation(project(":domain"))
-    implementation(project(":presentation"))
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
-    implementation libs.androidx.activity
-    implementation libs.androidx.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
 
-    implementation libs.androidx.recyclerview
-
-    // Retrofit
-    implementation libs.retrofit
-    implementation libs.converter.gson
-    implementation libs.logging.interceptor
-    // Coroutines
-    implementation libs.kotlinx.coroutines.core
-    implementation libs.kotlinx.coroutines.android
     // Coroutine Lifecycle Scopes
     implementation libs.androidx.lifecycle.viewmodel.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
+
     // hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
