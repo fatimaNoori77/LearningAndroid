@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace 'ir.noori.learningandroid'
-    compileSdk 34
+    compileSdk Integer.parseInt(libs.versions.compileSdk.get())
 
     defaultConfig {
         applicationId "ir.noori.learningandroid"
-        minSdk 23
-        targetSdk 34
+        minSdk Integer.parseInt(libs.versions.minSdk.get())
+        targetSdk Integer.parseInt(libs.versions.targetSdk.get())
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -39,6 +39,10 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":presentation"))
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat

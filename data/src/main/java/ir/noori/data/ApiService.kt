@@ -1,6 +1,6 @@
-package ir.noori.learningandroid
+package ir.noori.data
 
-import ir.noori.learningandroid.user.data.entity.UserDto
+import ir.noori.domain.UserDto
 import retrofit2.http.GET
 
 interface ApiService {

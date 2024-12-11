@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace 'ir.noori.domain'
-    compileSdk 34
+    compileSdk Integer.parseInt(libs.versions.compileSdk.get())
 
     defaultConfig {
-        minSdk 23
+        minSdk Integer.parseInt(libs.versions.minSdk.get())
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

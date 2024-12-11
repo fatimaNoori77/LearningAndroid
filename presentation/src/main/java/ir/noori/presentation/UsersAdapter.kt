@@ -1,10 +1,10 @@
-package ir.noori.learningandroid.user.ui
+package ir.noori.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ir.noori.learningandroid.MyApplication
-import ir.noori.learningandroid.databinding.ItemUserBinding
+import ir.noori.domain.UserModel
+import ir.noori.presentation.databinding.ItemUserBinding
 
 class UsersAdapter(val list : List<UserModel>) :
     RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
@@ -14,7 +14,7 @@ class UsersAdapter(val list : List<UserModel>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemUserBinding.inflate(
-            LayoutInflater.from(MyApplication.context),
+            LayoutInflater.from(parent.context),
             parent,
             false
         )
