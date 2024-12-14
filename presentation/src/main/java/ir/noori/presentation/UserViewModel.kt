@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.noori.domain.Repository
 import ir.noori.domain.UserModel
-import ir.noori.domain.mapToUserModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +23,7 @@ class UserViewModel @Inject constructor(
         viewModelScope.launch {
             val result = repository.getUsers()
             result.onSuccess { userList ->
-                _getUsers.value = userList.map { it.mapToUserModel() }
+                _getUsers.value = userList
             }.onFailure { exception ->
                 Log.e("UserViewModel", "Failed to fetch users: ${exception.message}")
             }

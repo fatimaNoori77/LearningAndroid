@@ -1,6 +1,5 @@
 package ir.noori.data
 
-import ir.noori.domain.UserDto
 import javax.inject.Inject
 
 class Repository @Inject constructor(private val apiService: ApiService) {

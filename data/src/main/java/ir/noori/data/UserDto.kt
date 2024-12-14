@@ -1,4 +1,6 @@
-package ir.noori.domain
+package ir.noori.data
+
+import ir.noori.domain.UserModel
 
 data class UserDto(
     var id: Int,
